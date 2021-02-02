@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.wangxun</groupId>
+    <artifactId>autotest</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <dom4j-version>1.6.1</dom4j-version>
+        <appium-version>7.0.0</appium-version>
+        <testng-version>6.14.3</testng-version>
+        <commons-version>2.6</commons-version>
+        <junit-version>4.12</junit-version>
+        <jxl-version>2.6.12</jxl-version>
+        <xml-version>1.4.01</xml-version>
+        <json-lib-version>2.4</json-lib-version>
+        <httpclient-version>3.1</httpclient-version>
+        <maven-compiler-plugin-version>3.5.1</maven-compiler-plugin-version>
+        <maven-surefire-plugin-version>2.19.1</maven-surefire-plugin-version>
+        <maven-surefire-report-plugin-version>2.19.1</maven-surefire-report-plugin-version>
+        <aliyun-sdk-oss-version>2.2.3</aliyun-sdk-oss-version>
+        <Jaxen-version>1.1</Jaxen-version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.wangxun</groupId>
+            <artifactId>util</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>java-client</artifactId>
+            <version>${appium-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng-version}</version>
+            <!--<scope>test</scope>-->
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.jexcelapi</groupId>
+            <artifactId>jxl</artifactId>
+            <version>${jxl-version}</version>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>commons-lang</groupId>-->
+            <!--<artifactId>commons-lang</artifactId>-->
+            <!--<version>${commons-version}</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>xml-apis</groupId>-->
+            <!--<artifactId>xml-apis</artifactId>-->
+            <!--<version>${xml-version}</version>-->
+        <!--</dependency>-->
+
+
+
+
+        <!--<dependency>-->
+            <!--<groupId>dom4j</groupId>-->
+            <!--<artifactId>dom4j</artifactId>-->
+            <!--<version>${dom4j-version}</version>-->
+        <!--</dependency>-->
+        <!--json-lib-->
+        <!--<dependency>-->
+            <!--<groupId>net.sf.json-lib</groupId>-->
+            <!--<artifactId>json-lib</artifactId>-->
+            <!--<version>${json-lib-version}</version>-->
+            <!--<classifier>jdk15</classifier>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>commons-httpclient</groupId>-->
+            <!--<artifactId>commons-httpclient</artifactId>-->
+            <!--<version>${httpclient-version}</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>junit</groupId>-->
+            <!--<artifactId>junit</artifactId>-->
+            <!--<version>${junit-version}</version>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>com.aliyun.oss</groupId>-->
+            <!--<artifactId>aliyun-sdk-oss</artifactId>-->
+            <!--<version>${aliyun-sdk-oss-version}</version>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>jaxen</groupId>-->
+            <!--<artifactId>jaxen</artifactId>-->
+            <!--<version>${Jaxen-version}</version>-->
+        <!--</dependency>-->
+
+        <!-- 		<dependency>
+                    <groupId>commons-io</groupId>
+                    <artifactId>commons-io</artifactId>
+                    <version>2.5</version>
+                </dependency> -->
+
+        <!--<dependency>-->
+            <!--<groupId>org.apache.httpcomponents</groupId>-->
+            <!--<artifactId>httpclient</artifactId>-->
+            <!--<version>4.5.2</version>-->
+        <!--</dependency>-->
+
+    </dependencies>
+    <build>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <!--<finalName>util</finalName>-->
+        <resources>
+            <resource>
+                <directory>src/main/resources/tools</directory>
+                <targetPath>${project.build.directory}/tools</targetPath>
+            </resource>
+            <resource>
+                <directory>src/main/resources/config</directory>
+                <targetPath>${project.build.directory}/config</targetPath>
+            </resource>
+            <resource>
+                <directory>src/main/resources/projects</directory>
+                <targetPath>${project.build.directory}/projects</targetPath>
+            </resource>
+            <resource>
+                <directory>src/main/resources/bin</directory>
+                <targetPath>${project.build.directory}/bin</targetPath>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <!-- 用于生成jar包的plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <!-- 把生成的jar包放在lib目录下（和其他所有jar包一起） -->
+                    <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>com.wangxun.autotest.project.web.demo.testcase.case_12306_2</mainClass>
+                        </manifest>
+                    </archive>
+                    <excludes>
+                        <exclude>*.xml</exclude>
+                        <exclude>*.properties</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+
+            <!-- 用于拷贝maven依赖的plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.10</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <!-- <phase>install</phase> -->
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <!-- 把依赖的所有maven jar包拷贝到lib目录中（这样所有的jar包都在lib目录中） -->
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId> maven-assembly-plugin </artifactId>
+                <configuration>
+                    <descriptors>
+                        <!-- 描述文件路径 -->
+                        <descriptor>src/main/resources/assembly.xml</descriptor>
+                    </descriptors>
+
+                </configuration>
+                <executions>
+                    <execution>
+                        <!--名字任意 -->
+                        <id>make-assembly</id>
+                        <!-- 绑定到package生命周期阶段上 -->
+                        <phase>package</phase>
+                        <goals>
+                            <!-- 只运行一次 -->
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

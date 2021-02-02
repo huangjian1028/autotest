@@ -1,0 +1,5 @@
+Android自动化
+waitDisplayAndClick,waitDisplay,click,sendKeys,assertContains,clear,sleep,getScreen,executeShell,appPress,appSwipe
+
+Web自动化
+waitDisplayAndClick,get,waitDisplay,click,sendKeys,assertContains,clear,switchToFrame,switchToDefaultContent,switchToNewWindow,switchToMainWindow,sleep,acceptAlert,dismissAlert,getScreen,executeShell,executeJS

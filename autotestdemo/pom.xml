@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.wangxun.autotest</groupId>
+    <artifactId>demo</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.wangxun</groupId>
+            <artifactId>autotest</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.wangxun</groupId>
+            <artifactId>util</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.directory.studio</groupId>
+            <artifactId>org.apache.commons.io</artifactId>
+            <version>2.4</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.9.3</version>
+        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>org.slf4j</groupId>-->
+        <!--<artifactId>slf4j-api</artifactId>-->
+        <!--<version>1.7.2</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.slf4j</groupId>-->
+        <!--<artifactId>slf4j-log4j12</artifactId>-->
+        <!--<version>1.7.2</version>-->
+        <!--</dependency>-->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-buffer</artifactId>
+            <version>4.1.13.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20160810</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.16</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.16</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>java-client</artifactId>
+            <version>7.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.14.3</version>
+            <!--<scope>test</scope>-->
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.jexcelapi</groupId>
+            <artifactId>jxl</artifactId>
+            <version>2.6.12</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <!--<finalName>util</finalName>-->
+        <resources>
+            <resource>
+                <directory>src/main/resources/tools</directory>
+                <targetPath>${project.build.directory}/tools</targetPath>
+            </resource>
+            <resource>
+                <directory>src/main/resources/config</directory>
+                <targetPath>${project.build.directory}/config</targetPath>
+            </resource>
+            <resource>
+                <directory>src/main/resources/projects</directory>
+                <targetPath>${project.build.directory}/projects</targetPath>
+            </resource>
+            <resource>
+                <directory>src/main/resources/bin</directory>
+                <targetPath>${project.build.directory}/bin</targetPath>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <!-- 用于生成jar包的plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <!-- 把生成的jar包放在lib目录下（和其他所有jar包一起） -->
+                    <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>com.wangxun.autotest.project.WebTestDemo.testCases.WebTestDemoWeb.case_12306_2</mainClass>
+                        </manifest>
+                    </archive>
+                    <excludes>
+                        <exclude>*.xml</exclude>
+                        <exclude>*.properties</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+
+            <!-- 用于拷贝maven依赖的plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.10</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <!-- <phase>install</phase> -->
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <!-- 把依赖的所有maven jar包拷贝到lib目录中（这样所有的jar包都在lib目录中） -->
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId> maven-assembly-plugin </artifactId>-->
+                <!--<configuration>-->
+                    <!--<descriptors>-->
+                        <!--&lt;!&ndash; 描述文件路径 &ndash;&gt;-->
+                        <!--<descriptor>src/main/resources/assembly.xml</descriptor>-->
+                    <!--</descriptors>-->
+
+                <!--</configuration>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--&lt;!&ndash;名字任意 &ndash;&gt;-->
+                        <!--<id>make-assembly</id>-->
+                        <!--&lt;!&ndash; 绑定到package生命周期阶段上 &ndash;&gt;-->
+                        <!--<phase>package</phase>-->
+                        <!--<goals>-->
+                            <!--&lt;!&ndash; 只运行一次 &ndash;&gt;-->
+                            <!--<goal>single</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+        </plugins>
+    </build>
+</project>

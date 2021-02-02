@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<suite name="Default suite">
+ <test name="Default test" verbose="2">
+  <classes>
+   <!--<class name="com.wangxun.autotest.project.android.demo.testcase.test">-->
+    <!--<methods>-->
+     <!--<include name="test02_test"/>-->
+    <!--</methods>-->
+   <!--</class>-->
+   <class name="com.wangxun.autotest.project.web.demo.testcase.case_12306_2">
+    <methods>
+     <include name="test02_test"/>
+    </methods>
+   </class>
+
+
+   <!--<class name="com.wangxun.autotestframe.project.android.dingding.testcase.test">-->
+    <!--<methods>-->
+    <!--<include name="test02_test"/>-->
+    <!--</methods>-->
+   <!--</class>-->
+  </classes>
+  <listeners>
+   <listener class-name="com.wangxun.autotest.ui.util.TestngListener"/>
+  </listeners>
+ </test>
+</suite>

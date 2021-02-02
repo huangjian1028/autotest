@@ -1,0 +1,31 @@
+<assembly>
+    <id>release</id>
+    <formats>
+        <format>zip</format>
+    </formats>
+<!--     如果为false，不会额外产生根目录 -->
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <fileSets>
+        <fileSet>
+            <directory>target/lib</directory>
+            <outputDirectory>/lib</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>target/config</directory>
+            <outputDirectory>/config</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>target/projects</directory>
+            <outputDirectory>/projects</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>target/tools</directory>
+            <outputDirectory>/tools</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>target/bin</directory>
+            <outputDirectory>/bin</outputDirectory>
+        </fileSet>
+    </fileSets>
+
+</assembly>

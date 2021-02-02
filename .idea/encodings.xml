@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/autotestdemo/src/main/resources/bin/make-code.bat" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/autotestdemo/src/main/resources/bin/start-auto-test.bat" charset="GBK" />
+  </component>
+</project>

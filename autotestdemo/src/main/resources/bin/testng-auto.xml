@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="Default suite">
+  <test name="Default suite" verbose="2">
+    <classes>
+      <class name="com.wangxun.autotest.project.web.WebTestDemo.testcase.case1">
+        <methods>
+          <include name="test02_test"/>
+        </methods>
+      </class>
+      <class name="com.wangxun.autotest.project.web.WebTestDemo.testcase.case2">
+        <methods>
+          <include name="test03_test"/>
+        </methods>
+      </class>
+    </classes>
+    <listeners>
+      <listener class-name="com.wangxun.autotest.ui.util.TestngListener"/>
+    </listeners>
+  </test>
+</suite>

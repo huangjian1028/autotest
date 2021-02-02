@@ -1,0 +1,5 @@
+Firefox中有一个默认的Profile配置文件，这个只要你安装了firefox就会默认创建的。
+
+你可以在开始菜单的运行文本框执行firefox -p命令调取查看。
+
+点击『Create Profile』创建一个新的用户配置文件如“QA”。
